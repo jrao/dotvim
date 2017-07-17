@@ -52,3 +52,9 @@ set spell
 " Set tab behavior
 set tabstop=4
 set shiftwidth=4
+
+" Plugin Management
+" Using vim-plug: https://github.com/junegunn/vim-plug
+call plug#begin('~/.vim/plugged')
+Plug 'https://github.com/vim-airline/vim-airline'
+call plug#end()
