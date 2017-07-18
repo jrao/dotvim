@@ -71,6 +71,8 @@ Plug 'https://github.com/tpope/vim-commentary'
 Plug 'https://github.com/yegappan/mru'
 Plug 'https://github.com/junegunn/goyo.vim'
 Plug 'https://github.com/amix/vim-zenroom2'
+Plug 'https://github.com/vim-syntastic/syntastic'
+Plug 'https://github.com/Valloric/YouCompleteMe'
 call plug#end()
 
 " Toggle NERDTree
@@ -83,3 +85,12 @@ nnoremap gm m
 
 " Toggle Goyo
 nnoremap <silent> <leader>z :Goyo<cr>
+
+" Syntastic recommended settings
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
