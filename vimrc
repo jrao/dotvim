@@ -53,8 +53,8 @@ set spell
 set tabstop=4
 set shiftwidth=4
 
-" Toggle NERDTree
-map <C-n> :NERDTreeToggle<CR>
+" Make all yank/delete/paste options use the system register *
+set clipboard=unnamed
 
 " Plugin Management
 " Using vim-plug: https://github.com/junegunn/vim-plug
@@ -62,4 +62,17 @@ call plug#begin('~/.vim/plugged')
 Plug 'https://github.com/vim-airline/vim-airline'
 Plug 'https://github.com/scrooloose/nerdtree'
 Plug 'https://github.com/tpope/vim-fugitive'
+Plug 'https://github.com/tpope/vim-surround'
+Plug 'https://github.com/tpope/vim-repeat'
+Plug 'https://github.com/svermeulen/vim-easyclip'
+Plug 'https://github.com/flazz/vim-colorschemes'
+Plug 'https://github.com/jlanzarotta/bufexplorer'
+Plug 'https://github.com/tpope/vim-commentary'
 call plug#end()
+
+" Toggle NERDTree
+map <C-n> :NERDTreeToggle<CR>
+
+" Remap add mark from 'm' to 'gm' since 'm' is used by easyclip:
+" https://github.com/svermeulen/vim-easyclip
+nnoremap gm m
