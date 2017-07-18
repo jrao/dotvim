@@ -68,11 +68,18 @@ Plug 'https://github.com/svermeulen/vim-easyclip'
 Plug 'https://github.com/flazz/vim-colorschemes'
 Plug 'https://github.com/jlanzarotta/bufexplorer'
 Plug 'https://github.com/tpope/vim-commentary'
+Plug 'https://github.com/yegappan/mru'
+Plug 'https://github.com/junegunn/goyo.vim'
+Plug 'https://github.com/amix/vim-zenroom2'
 call plug#end()
 
 " Toggle NERDTree
-map <C-n> :NERDTreeToggle<CR>
+" map <C-n> :NERDTreeToggle<CR>
+map nn :NERDTreeToggle<CR>
 
 " Remap add mark from 'm' to 'gm' since 'm' is used by easyclip:
 " https://github.com/svermeulen/vim-easyclip
 nnoremap gm m
+
+" Toggle Goyo
+nnoremap <silent> <leader>z :Goyo<cr>
