@@ -33,15 +33,22 @@ colorscheme elflord
 noremap j gj
 noremap k gk
 
+" When scrolling, always show 10 lines around cursor
+set scrolloff=10
+
 " Change the mapleader from \ to ,
 let mapleader=","
 
-" Use case insensitive search unless search term includes at least one upper case character
+" Use case insensitive search unless search term includes at least one upper
+" case character
 :set ignorecase
 :set smartcase
 
 " Soft wrap
 :set wrap linebreak nolist
+
+" Use UTF-8 for for everything
+set encoding=utf-8 fileencoding=utf-8 termencoding=utf-8
 
 " Set backup folder
 set backupdir=~/.vimbackup,~/tmp,~/
@@ -53,8 +60,13 @@ set spell
 set tabstop=4
 set shiftwidth=4
 
+" Highlight all columns past 80
+let &colorcolumn=join(range(81,999),",")
+" Set color column color
+highlight ColorColumn ctermbg=235 guibg=#2c2d27
+
 " Make all yank/delete/paste options use the system register *
-set clipboard=unnamed
+set clipboard=unnamedplus
 
 " Plugin Management
 " Using vim-plug: https://github.com/junegunn/vim-plug
@@ -77,7 +89,7 @@ call plug#end()
 
 " Toggle NERDTree
 " map <C-n> :NERDTreeToggle<CR>
-map nn :NERDTreeToggle<CR>
+map <C-n> :NERDTreeToggle<CR>
 
 " Remap add mark from 'm' to 'gm' since 'm' is used by easyclip:
 " https://github.com/svermeulen/vim-easyclip
@@ -85,6 +97,9 @@ nnoremap gm m
 
 " Toggle Goyo
 nnoremap <silent> <leader>z :Goyo<cr>
+
+" Open recent files list (mru: most recently used)
+nnoremap <leader>r :MRU<cr>
 
 " Syntastic recommended settings
 set statusline+=%#warningmsg#
