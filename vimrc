@@ -53,8 +53,10 @@ set encoding=utf-8 fileencoding=utf-8 termencoding=utf-8
 " Set backup folder
 set backupdir=~/.vimbackup,~/tmp,~/
 
-" Set spellcheck on
-set spell
+" Spellcheck (see https://robots.thoughtbot.com/vim-spell-checking)
+autocmd BufRead,BufNewFile *.txt setlocal spell
+autocmd BufRead,BufNewFile *.md setlocal spell
+autocmd BufRead,BufNewFile *.markdown setlocal spell
 
 " Set tab behavior
 set tabstop=4
@@ -85,6 +87,8 @@ Plug 'https://github.com/junegunn/goyo.vim'
 Plug 'https://github.com/amix/vim-zenroom2'
 Plug 'https://github.com/vim-syntastic/syntastic'
 Plug 'https://github.com/Valloric/YouCompleteMe'
+Plug 'https://github.com/jez/vim-better-sml'
+Plug 'https://github.com/plasticboy/vim-markdown'
 call plug#end()
 
 " Toggle NERDTree
@@ -109,3 +113,17 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
+" from https://blog.jez.io/sml-dev-setup/
+augroup mySyntastic
+  " tell syntastic to always stick any detected errors into the location-list
+  au FileType sml let g:syntastic_always_populate_loc_list = 1
+  " automatically open and/or close the location-list
+  au FileType sml let g:syntastic_auto_loc_list = 1
+augroup END
+" press <Leader>S (i.e., \S) to not automatically check for errors
+nnoremap <Leader>S :SyntasticToggleMode<CR>
+
+" Enabling https://github.com/plasticboy/vim-markdown enables markdown
+" folding. This disables it.
+let g:vim_markdown_folding_disabled=1
